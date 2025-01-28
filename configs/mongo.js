@@ -20,15 +20,14 @@ export const dbConnection = async () => {
         mongoose.connection.on('reconnected', ()=>{
             console.log('MongoDB | reconnected to MongoDB');
         });
-
-        mongoose.connection.on('disconnectd', ()=>{
+        mongoose.connection.on('disconnected', ()=>{
             console.log('MongoDB | disconnected');
         });
-        mongoose.connect(process.env.MONGO_URI, {
+        mongoose.connect(process.env.URI_MONGO, {
             serverSelectionTimeoutMS: 5000,
             maxPoolSize: 50,
         });
     } catch (error) {
-       console.log('Database connection failed', error);
+        console.log('Database connection failed', error);
     }
 }
