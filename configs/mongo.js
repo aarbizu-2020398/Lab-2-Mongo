@@ -1,11 +1,11 @@
 'use strict';
- 
+
 import mongoose from "mongoose";
- 
+
 export const dbConnection = async () => {
-    try {
-        mongoose.connection.on('error', () =>{
-            console.log('MongoDB | Could not be connected to MongoDb');
+    try{
+        mongoose.connection.on('error', ()=>{
+            console.log('MongoDB | Could not be connected to MongoDB');
             mongoose.disconnect();
         });
         mongoose.connection.on('connecting', ()=>{
@@ -27,7 +27,7 @@ export const dbConnection = async () => {
             serverSelectionTimeoutMS: 5000,
             maxPoolSize: 50,
         });
-    } catch (error) {
+    }catch(error){
         console.log('Database connection failed', error);
     }
 }
