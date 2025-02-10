@@ -1,0 +1,50 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "pet",
+    "collectionId": "c998168a-d16b-4fb3-818e-995404384317",
+    "dateExported": "2025-02-10T16:37:12.494Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f515d127-0e70-44eb-bb3d-a70de615ba9e",
+            "colId": "c998168a-d16b-4fb3-818e-995404384317",
+            "containerId": "",
+            "name": "http://localhost:3021/adoptionSystem/v1/pets/67aa26d48818a67d7960989f",
+            "url": "http://localhost:3021/adoptionSystem/v1/pets/67aa26d48818a67d7960989f",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-02-10T16:31:52.661Z",
+            "modified": "2025-02-10T16:31:52.661Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FhMjY0NmUxMThmMjhmYjYwMTc1NzMiLCJpYXQiOjE3MzkyMDQxNzMsImV4cCI6MTczOTIwNzc3M30.-Ph6S2rGpGObeKTJr9dAnbEQYjDB_GJjvFkPDpvFkTc"
+                }
+            ]
+        },
+        {
+            "_id": "0319ade5-64e1-4f9f-9850-234b793051ea",
+            "colId": "c998168a-d16b-4fb3-818e-995404384317",
+            "containerId": "",
+            "name": "http://localhost:3021/adoptionSystem/v1/pets/",
+            "url": "http://localhost:3021/adoptionSystem/v1/pets/",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-10T16:32:01.757Z",
+            "modified": "2025-02-10T16:32:01.757Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FhMjY0NmUxMThmMjhmYjYwMTc1NzMiLCJpYXQiOjE3MzkyMDQxNzMsImV4cCI6MTczOTIwNzc3M30.-Ph6S2rGpGObeKTJr9dAnbEQYjDB_GJjvFkPDpvFkTc"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"phanton\",\n  \"description\": \"db\",\n  \"age\": \"2\",\n  \"type\": \"vacaelefante\",\n  \"email\": \"canelcano-1456@gmail.com\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "kYuUIY75NhhBvzFCmhW48PRgjTLU601XHk1e739N87qxmuG6xVQ42NPm_Fx-QlMw_16_ZpQwu4K6rNuim4PSVw"
+}

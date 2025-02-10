@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "67aa26d48818a67d7960989f"
+  },
+  "name": "max2lavenganza",
+  "description": "mongo",
+  "age": 3,
+  "type": "PERRO",
+  "keeper": {
+    "$oid": "67aa2646e118f28fb6017573"
+  },
+  "status": false,
+  "createdAt": {
+    "$date": "2025-02-10T16:18:28.814Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-10T16:25:24.390Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67aa27428818a67d796098a3"
+  },
+  "name": "phanton",
+  "description": "db",
+  "age": 2,
+  "type": "VACAELEFANTE",
+  "keeper": {
+    "$oid": "67aa2646e118f28fb6017573"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-10T16:20:18.160Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-10T16:20:18.160Z"
+  }
+}]

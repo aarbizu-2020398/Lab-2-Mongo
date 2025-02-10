@@ -1,0 +1,45 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "users",
+    "collectionId": "60ba178c-fe57-4609-8ee3-8ea50a8247d3",
+    "dateExported": "2025-02-10T16:34:03.918Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f1932142-312b-4edd-896e-3d50c8ffd47b",
+            "colId": "60ba178c-fe57-4609-8ee3-8ea50a8247d3",
+            "containerId": "",
+            "name": "http://localhost:3021/adoptionSystem/v1/users/67aa25c4e118f28fb601756e",
+            "url": "http://localhost:3021/adoptionSystem/v1/users/67aa25c4e118f28fb601756e",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2025-02-10T16:31:41.286Z",
+            "modified": "2025-02-10T16:31:41.286Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FhMjY0NmUxMThmMjhmYjYwMTc1NzMiLCJpYXQiOjE3MzkyMDQxNzMsImV4cCI6MTczOTIwNzc3M30.-Ph6S2rGpGObeKTJr9dAnbEQYjDB_GJjvFkPDpvFkTc"
+                }
+            ]
+        },
+        {
+            "_id": "b44e781a-7262-40c3-add3-a6ad692f4bf0",
+            "colId": "60ba178c-fe57-4609-8ee3-8ea50a8247d3",
+            "containerId": "",
+            "name": "http://localhost:3021/adoptionSystem/v1/auth/register",
+            "url": "http://localhost:3021/adoptionSystem/v1/auth/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-10T16:32:19.301Z",
+            "modified": "2025-02-10T16:32:19.301Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "  {\n      \"name\": \"cano\",\n      \"surname\": \"cnocanel\",\n      \"username\": \"canelcano\",\n      \"email\": \"canelcano-1456@gmail.com\",\n      \"password\": \"145231422\",\n      \"profilePicture\": \"\",\n      \"phone\": \"45874582\",\n      \"role\": \"ADMIN_ROLE\"\n  }",
+                "form": []
+            }
+        }
+    ],
+    "ref": "NoC1vNUgfx6c6XZhIgeUVSZz-2rJuKxBAGq2qtjc24Mcoyg8Lga0zsWKr8Mz24_0tHbk0yUuRN4KIaOGU3s6jw"
+}
