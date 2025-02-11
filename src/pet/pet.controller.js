@@ -123,3 +123,30 @@ export const deletePet = async (req, res) => {
     }
 }
  
+export const updatePet = async (req, res) => {
+    const {id } = req.params;
+    const {data} = req.params;
+
+    try {
+        await Pet.findByIdAndUpdate(id, data,{new:true});
+ 
+        if (!mascota) {
+            return res.status(404).json({
+                success: false,
+                message: "Mascota no encontrada"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            mascota
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error al actualizar mascota",
+            error
+        });
+    }
+}
