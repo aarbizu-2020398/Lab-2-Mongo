@@ -3,8 +3,8 @@ import { check } from "express-validator";
 import { SaveAppointment, getAppointments, searchAppointment, deleteAppointment } from "./appointment.controller.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
-import { existeCitaById } from "../helpers/db-validator.js"; // Asumiendo que existe una validación para cita
-import { uploadProfileCites } from "../middlewares/multer-upload.js"; // Si hay subida de archivo de cita (como fotos, etc.)
+import { existeCitaById } from "../helpers/db-validator.js"; 
+import { uploadProfileCites } from "../middlewares/multer-upload.js"; 
 
 const router = Router();
 
@@ -27,34 +27,34 @@ router.post(
 router.get(
   "/",
   [
-    validarJWT, // Verifica que el usuario esté autenticado
+    validarJWT, 
     validarCampos,
   ],
-  getAppointments // Controlador para obtener las citas
+  getAppointments 
 );
 
 // Ruta para obtener una cita por ID
 router.get(
   "/:id",
   [
-    validarJWT, // Verifica que el usuario esté autenticado
+    validarJWT, 
     check("id", "No es un ID válido").isMongoId(),
     check("id").custom(existeCitaById), // Valida si la cita existe
     validarCampos, // Valida los campos
   ],
-  searchAppointment // Controlador para buscar una cita específica
+  searchAppointment 
 );
 
 // Ruta para eliminar una cita por ID
 router.delete(
   "/:id",
   [
-    validarJWT, // Verifica que el usuario esté autenticado
+    validarJWT, 
     check("id", "No es un ID válido").isMongoId(),
     check("id").custom(existeCitaById), // Valida si la cita existe
-    validarCampos, // Valida los campos
+    validarCampos, 
   ],
-  deleteAppointment // Controlador para eliminar una cita
+  deleteAppointment 
 );
 
 export default router;
