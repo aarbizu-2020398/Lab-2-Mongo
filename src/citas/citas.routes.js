@@ -8,19 +8,19 @@ import { uploadProfileCites } from "../middlewares/multer-upload.js";
 
 const router = Router();
 
-// Ruta para crear una nueva cita de adopción
+
 router.post(
   "/",
   [
-    validarJWT, // Verifica que el usuario esté autenticado
+    validarJWT, 
     check("email", "Este correo no es válido").isEmail(),
-    check("phone", "El número de teléfono debe ser válido").isLength({ min: 8, max: 8 }), // Teléfono de 8 dígitos
+    check("phone", "El número de teléfono debe ser válido").isLength({ min: 8, max: 8 }), 
     check("address", "La dirección es obligatoria").not().isEmpty(),
     check("petName", "El nombre de la mascota es obligatorio").not().isEmpty(),
     check("appointmentDate", "La fecha de la cita es obligatoria").isDate(),
-    validarCampos, // Valida que los campos sean correctos
+    validarCampos, 
   ],
-  SaveAppointment // Controlador para crear una cita de adopción
+  SaveAppointment 
 );
 
 // Ruta para obtener todas las citas de adopción
@@ -39,8 +39,8 @@ router.get(
   [
     validarJWT, 
     check("id", "No es un ID válido").isMongoId(),
-    check("id").custom(existeCitaById), // Valida si la cita existe
-    validarCampos, // Valida los campos
+    check("id").custom(existeCitaById), 
+    validarCampos, 
   ],
   searchAppointment 
 );
@@ -51,7 +51,7 @@ router.delete(
   [
     validarJWT, 
     check("id", "No es un ID válido").isMongoId(),
-    check("id").custom(existeCitaById), // Valida si la cita existe
+    check("id").custom(existeCitaById), 
     validarCampos, 
   ],
   deleteAppointment 
