@@ -1,0 +1,45 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "auth",
+    "collectionId": "90f833c6-efb1-4399-bddb-06c41cef06a0",
+    "dateExported": "2025-02-10T16:38:26.854Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b44e781a-7262-40c3-add3-a6ad692f4bf0",
+            "colId": "90f833c6-efb1-4399-bddb-06c41cef06a0",
+            "containerId": "",
+            "name": "http://localhost:3021/adoptionSystem/v1/auth/register",
+            "url": "http://localhost:3021/adoptionSystem/v1/auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2025-02-10T16:37:29.950Z",
+            "modified": "2025-02-10T16:37:29.950Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "  {\n      \"name\": \"cano\",\n      \"surname\": \"cnocanel\",\n      \"username\": \"canelcano\",\n      \"email\": \"canelcano-1456@gmail.com\",\n      \"password\": \"145231422\",\n      \"profilePicture\": \"\",\n      \"phone\": \"45874582\",\n      \"role\": \"ADMIN_ROLE\"\n  }",
+                "form": []
+            }
+        },
+        {
+            "_id": "cc4c42a8-5feb-43f7-8a8e-90c084d396a4",
+            "colId": "90f833c6-efb1-4399-bddb-06c41cef06a0",
+            "containerId": "",
+            "name": "http://localhost:3021/adoptionSystem/v1/auth/login",
+            "url": "http://localhost:3021/adoptionSystem/v1/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-10T16:37:43.078Z",
+            "modified": "2025-02-10T16:37:43.078Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"canelcano-1456@gmail.com\",\n  \"password\": \"145231422\"\n  \n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "Di2bNRczm-KfzGzJPPIV7zniwlV9QGAAm7eYniOYfR0anOatfk3LPephveC5p5xPxe5wRxl9IpS94Do5ljFM8A"
+}

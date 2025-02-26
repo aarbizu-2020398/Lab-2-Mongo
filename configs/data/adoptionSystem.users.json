@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "67aa1bd0d090060016dfcde2"
+  },
+  "name": "Juan",
+  "surname": "Jjuan",
+  "username": "Jjuanperez",
+  "email": "jjuan-5649@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$KohB3K0U7O1PjbQCqllQqQ$wuW8h5CA0ze54IcsYiKjcpOkOOz40IQNVI1CxTaU7mU",
+  "profilePicture": null,
+  "phone": "41252361",
+  "role": "USER_ROLE",
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-10T15:31:28.015Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-10T15:31:28.015Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67aa1c34b2b32a1b11833e5a"
+  },
+  "name": "Julio",
+  "surname": "cjulio",
+  "username": "jpuac",
+  "email": "puacjulio-20115@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$qInaFTpq1pXxM53eppfHXw$pWbz6zoeDtqgyYVwxuleXikRDh/GnbQD6bm9yP7FT88",
+  "profilePicture": null,
+  "phone": "45874587",
+  "role": "ADMIN_ROLE",
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-10T15:33:08.667Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-10T15:33:08.667Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67aa25c4e118f28fb601756e"
+  },
+  "name": "Cano",
+  "surname": "Cnocanel",
+  "username": "Canelcano",
+  "email": "Canelcano-1456@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$OyGwj7zycZTDBq0QmijPSQ$g1J+NuVpXknEV6y/D99EB/XWs0hXvbZZq8otHpZAvYs",
+  "profilePicture": null,
+  "phone": "45874582",
+  "role": "ADMIN_ROLE",
+  "estado": false,
+  "createdAt": {
+    "$date": "2025-02-10T16:13:56.979Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-10T16:30:20.565Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67aa2646e118f28fb6017573"
+  },
+  "name": "cano",
+  "surname": "cnocanel",
+  "username": "canelcano",
+  "email": "canelcano-1456@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$QzyNQxO5jzI8qehUf0egiA$UHxMODzDMd++WtEkDC2pcuAoSIVZ9rUGy7eJIeOgZ+Y",
+  "profilePicture": null,
+  "phone": "45874582",
+  "role": "ADMIN_ROLE",
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-10T16:16:06.422Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-10T16:16:06.422Z"
+  }
+}]
