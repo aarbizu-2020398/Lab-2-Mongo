@@ -1,28 +1,26 @@
-import Role from '../role/role.model.js';
-import User from '../users/user.model.js';
+import Comentario from '../comentarios/comentarios.model.js';
+import Publicacion from '../publicaciones/publicaciones.model.js';
+import Categoria from '../categories/categorias.model.js';
 
-export const esRoleValido = async (role = '') => {
 
-    const existeRol = await Role.findOne({ role });
 
-    if(!existeRol){
-        throw new Error(`El rol ${ role } no existe en la base de datos`);
+export const existeComentarioById = async (id = '') => {
+    const comentario = await Comentario.findById(id);
+    if (!comentario) {
+        throw new Error(`El comentario con el ID ${id} no existe`);
     }
-}
+};
 
-export const existenteEmail = async (email = ' ') => {
-
-    const existeEmail = await User.findOne({ email });
-
-    if(existeEmail){
-        throw new Error(`El correo ${ email } ya existe en la base de datos`);
+export const existePublicacionById = async (id = '') => {
+    const publicacion = await Publicacion.findById(id);
+    if (!publicacion) {
+        throw new Error(`La publicación con el ID ${id} no existe`);
     }
-}
+};
 
-export const existeUsuarioById = async (id  = '') =>{
-    const existeUsuario = await User.findById(id);
-
-    if(!existeUsuario){
-        throw new Error(`El ID ${id} no existe`)
+export const existeCategoriaById = async (id = '') => {
+    const categoria = await Categoria.findById(id);
+    if (!categoria) {
+        throw new Error(`La categoría con el ID ${id} no existe`);
     }
-}
+};

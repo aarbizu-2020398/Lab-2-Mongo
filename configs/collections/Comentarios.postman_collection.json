@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "0c10982a-1cfd-47a7-a326-0a99610347d9",
+		"name": "Comentarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42124475"
+	},
+	"item": [
+		{
+			"name": "Agregar Comentarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU4OTU2MjU5ZmNlOGM1NjM1ZDNlYSIsInJvbGUiOiJBRE1JTl9ST0xFIiwiaWF0IjoxNzQwNTQwMjU3LCJleHAiOjE3NDA1NDM4NTd9.Nda2GKygkEGKSJr0GuKGTlHJWlULTUR37P_t_r8nf9I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"publicacionId\": \"65f4e8b2c23d4f5e8e4f1a9b\",\r\n    \"contenido\": \"¡Me encantó esta publicación!\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/comment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"comment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Comentario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU4OTU2MjU5ZmNlOGM1NjM1ZDNlYSIsInJvbGUiOiJBRE1JTl9ST0xFIiwiaWF0IjoxNzQwNTQ0MzIxLCJleHAiOjE3NDA1NDc5MjF9.8g_9afeowMzqFZFnFZxCjqcNiKRhaY3adA-0Jfe0iSs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/comment/publicacion/67be9680121f2f7f83822f4b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"comment",
+						"publicacion",
+						"67be9680121f2f7f83822f4b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Comentario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU4OTU2MjU5ZmNlOGM1NjM1ZDNlYSIsInJvbGUiOiJBRE1JTl9ST0xFIiwiaWF0IjoxNzQwNTQ0MzIxLCJleHAiOjE3NDA1NDc5MjF9.8g_9afeowMzqFZFnFZxCjqcNiKRhaY3adA-0Jfe0iSs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "",
+					"query": [
+						{
+							"key": null,
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Comentario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU4OTU2MjU5ZmNlOGM1NjM1ZDNlYSIsInJvbGUiOiJBRE1JTl9ST0xFIiwiaWF0IjoxNzQwNTQ0MzIxLCJleHAiOjE3NDA1NDc5MjF9.8g_9afeowMzqFZFnFZxCjqcNiKRhaY3adA-0Jfe0iSs",
+						"type": "text"
+					}
+				]
+			},
+			"response": []
+		}
+	]
+}

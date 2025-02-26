@@ -1,42 +1,49 @@
-import jwt from 'jsonwebtoken';
-
-import Usuario from '../users/user.model.js';
+import jwt from "jsonwebtoken";
+import User from "../users/user.model.js";
 
 export const validarJWT = async (req, res, next) => {
+    const token = req.header('x-token');
 
-    const token = req.header("x-token");
-
-    if(!token){
+    if (!token) {
         return res.status(401).json({
-            msg: "No hay token en la peticion"
-        })
+            success: false,
+            msg: "No hay token en la petición"
+        });
     }
 
     try {
-        
-        const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+        const { id } = jwt.verify(token, process.env.JWT_SECRET);
+        let usuario = await User.findById(id);
 
-        const usuario = await Usuario.findById(uid);
-
-        if(!usuario){
+        if (!usuario) {
             return res.status(401).json({
+                success: false,
                 msg: 'Usuario no existe en la base de datos'
-            })
+            });
         }
 
-        if(!usuario.estado){
+        if (!usuario.estado) {
             return res.status(401).json({
-                msg: 'Token no valido - usuarios con estado: false'
-            })
+                success: false,
+                msg: 'Token no válido - Usuario con estado inactivo'
+            });
         }
 
-        req.usuario = usuario;
+        req.user = {
+            id: usuario._id.toString(),
+            nombre: usuario.nombre,
+            email: usuario.email,
+            role: usuario.role
+        };
+
+        console.log("Usuario autenticado desde validarJWT:", req.user); 
 
         next();
-    } catch (e) {
-        console.log(e);
+    } catch (error) {
+        console.log("Error en validarJWT:", error);
         res.status(401).json({
-            msg: "Token no valido"
-        })
+            success: false,
+            msg: "Token no válido"
+        });
     }
-}
+};

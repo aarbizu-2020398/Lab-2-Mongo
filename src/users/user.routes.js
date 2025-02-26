@@ -1,47 +1,18 @@
-import { Router } from "express";
-import { check } from "express-validator";
-import { getUsers, getUserById, updateUser, deleteUser } from "./user.controller.js";
-import { existeUsuarioById } from "../helpers/db-validator.js";
-import{validarCampos} from "../middlewares/validar-campos.js";
-import {uploadProfilePicture} from "../middlewares/multer-upload.js";
+import express from 'express';
+import {register,login,getProfile,updateProfile,changePassword} from '../users/user.controller.js';
+import authMiddleware from '../middleware/authMiddleware.js';
 
-const router = Router();
+const router = express.Router();
 
 
-router.get("/", getUsers)
-router.get(
-    "/findUser/:id",
-    [
-        check("id", "No es un ID válido").isMongoId(),
-        check("id").custom(existeUsuarioById),
-        validarCampos
-    ],
-    getUserById
-)
+router.post('/register', register);
+router.post('/login', login);
 
 
-router.put(
-    "/:id",
-    uploadProfilePicture.single("profilePicture"),
-    [
-        check("id", "No es uun ID valido").isMongoId(),
-        check("id").custom(existeUsuarioById),
-        validarCampos
-    ],
-    updateUser
-)
+router.get('/', authMiddleware, getProfile);
+router.put('/:id', authMiddleware, updateProfile);
+router.put('/change-password', authMiddleware, changePassword);
 
-router.delete(
-    "/:id",
-    [   
-        check("id", "No es uun ID valido").isMongoId(),
-        check("id").custom(existeUsuarioById),
-        validarCampos
-
-    ],
-    deleteUser
-)
 
 
 export default router;
-

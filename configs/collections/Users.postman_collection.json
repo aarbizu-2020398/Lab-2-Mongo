@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "20800b30-3930-4620-8aa2-f775e5c4ede5",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42124475"
+	},
+	"item": [
+		{
+			"name": "Usuario register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"admin@example.com\",\r\n  \"password\": \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario Listado",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1YzFjMDZmMDI4ZDc1OTcyNzRiZCIsInJvbGUiOiJBRE1JTl9ST0xFIiwiaWF0IjoxNzQwNTMwMzAyLCJleHAiOjE3NDA1MzM5MDJ9.R7RqC04B8thpFIWN1_WmFBT5yW0OHpCKPbM7dJWyDiQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/auth/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1YzFjMDZmMDI4ZDc1OTcyNzRiZCIsInJvbGUiOiJBRE1JTl9ST0xFIiwiaWF0IjoxNzQwNTMwMzAyLCJleHAiOjE3NDA1MzM5MDJ9.R7RqC04B8thpFIWN1_WmFBT5yW0OHpCKPbM7dJWyDiQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"nombre\": \"Carlos\",\r\n    \"email\": \"carlos1452@gmail.com\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/auth/67be5c1c06f028d7597274bd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"auth",
+						"67be5c1c06f028d7597274bd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1YzFjMDZmMDI4ZDc1OTcyNzRiZCIsInJvbGUiOiJBRE1JTl9ST0xFIiwiaWF0IjoxNzQwNTMwMzAyLCJleHAiOjE3NDA1MzM5MDJ9.R7RqC04B8thpFIWN1_WmFBT5yW0OHpCKPbM7dJWyDiQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/auth/67be5c1c06f028d7597274bd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"auth",
+						"67be5c1c06f028d7597274bd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"email\": \"esteve451@gmail.com\",\r\n    \"password\": \"cano2024\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"nombre\": \"Esteven\",\r\n    \"email\": \"esteve451@gmail.com\",\r\n    \"password\": \"cano2024\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"admin@example.com\",\r\n  \"password\": \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "108b5e30-2f37-46b8-a172-e920a00819e8",
+		"name": "Categorias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42124475"
+	},
+	"item": [
+		{
+			"name": "Agregar Categoria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU2OGE1NjU5NmEyOTc3ZGFhOWVkYyIsInJvbGUiOiJVU0VSX1JPTEUiLCJpYXQiOjE3NDA1MzE4NzcsImV4cCI6MTc0MDUzNTQ3N30.XZPMJ_EE0ZhVZPsMoXXv_JreSPRNjsrZpuZ95aaByQA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Entretenimiento\",\r\n    \"descripcion\":\"Peliculas de accion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar categoria",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU2OGE1NjU5NmEyOTc3ZGFhOWVkYyIsInJvbGUiOiJVU0VSX1JPTEUiLCJpYXQiOjE3NDA1MzE4NzcsImV4cCI6MTc0MDUzNTQ3N30.XZPMJ_EE0ZhVZPsMoXXv_JreSPRNjsrZpuZ95aaByQA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar categoria",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU4OTU2MjU5ZmNlOGM1NjM1ZDNlYSIsInJvbGUiOiJBRE1JTl9ST0xFIiwiaWF0IjoxNzQwNTQwMjU3LCJleHAiOjE3NDA1NDM4NTd9.Nda2GKygkEGKSJr0GuKGTlHJWlULTUR37P_t_r8nf9I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Entretenimiento\",\r\n    \"descripcion\": \"Categoría para contenido de entretenimiento\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/categories/67be726605ab372ef26e7141",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"categories",
+						"67be726605ab372ef26e7141"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Categoria",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3040/gestor-opiniones/v1/categories/67be726605ab372ef26e7141",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3040",
+					"path": [
+						"gestor-opiniones",
+						"v1",
+						"categories",
+						"67be726605ab372ef26e7141"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

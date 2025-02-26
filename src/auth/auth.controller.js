@@ -1,95 +1,129 @@
-import Usuario from '../users/user.model.js';
-import { hash, verify } from 'argon2';
-import { generarJWT} from '../helpers/generate-jwt.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import Usuario from '../auth/auth.model.js';  
 
-export const login = async (req, res) => {
 
-    const { email, password, username } = req.body;
-
+export const registrarUsuario = async (req, res) => {
     try {
-        
-        const lowerEmail = email ? email.toLowerCase() : null;
-        const lowerUsername = username ? username.toLowerCase() : null;
+        const { nombre, email, password, rol } = req.body;
 
-        const user = await Usuario.findOne({
-            $or: [{ email: lowerEmail }, { username: lowerUsername }]
+       
+        const usuarioExistente = await Usuario.findOne({ email });
+        if (usuarioExistente) {
+            return res.status(400).json({ success: false, message: 'El correo ya está registrado' });
+        }
+
+       
+        const salt = await bcrypt.genSalt(10);
+        const passwordHash = await bcrypt.hash(password, salt);
+
+       
+        const nuevoUsuario = new Usuario({
+            nombre,
+            email,
+            password: passwordHash,
+            rol: rol || 'USER_ROLE',  
         });
 
-        if(!user){
-            return res.status(400).json({
-                msg: 'Credenciales incorrectas, Correo no existe en la base de datos'
-            });
-        }
+        await nuevoUsuario.save();
 
-        if(!user.estado){
-            return res.status(400).json({
-                msg: 'El usuario no existe en la base de datos'
-            });
-        }
-
-        const validPassword = await verify(user.password, password);
-        if(!validPassword){
-            return res.status(400).json({
-                msg: 'La contraseña es incorrecta'
-            });
-        }
-
-        const token = await generarJWT( user.id );
-
-        return res.status(200).json({
-            msg: 'Inicio de sesión exitoso!!',
-            userDetails: {
-                username: user.username,
-                token: token,
-                profilePicture: user.profilePicture
-            }
-        })
-
-    } catch (e) {
-        
-        console.log(e);
-
-        return res.status(500).json({
-            message: "Server error",
-            error: e.message
-        })
-    }
-}
-
-export const register = async (req, res) => {
-    try {
-        const data = req.body;
-
-        let profilePicture = req.file ? req.file.filename : null;
-
-        const encryptedPassword = await hash (data.password);
-
-        const user = await Usuario.create({
-            name: data.name,
-            surname: data.surname,
-            username: data.username,
-            email: data.email,
-            phone: data.phone,
-            password: encryptedPassword,
-            role: data.role,
-            profilePicture
-        })
-
-        return res.status(201).json({
-            message: "User registered successfully",
-            userDetails: {
-                user: user.email
-            }
-        });
-
+        res.status(201).json({ success: true, message: 'Usuario registrado exitosamente' });
     } catch (error) {
-        
-        console.log(error);
-
-        return res.status(500).json({
-            message: "User registration failed",
-            error: err.message
-        })
-
+        console.error('Error al registrar usuario:', error);
+        res.status(500).json({ success: false, message: 'Error interno del servidor' });
     }
-}
+};
+
+
+export const loginUsuario = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        const usuario = await Usuario.findOne({ email });
+        if (!usuario) {
+            return res.status(400).json({ success: false, message: 'Correo o contraseña incorrectos' });
+        }
+
+
+        const passwordValido = await bcrypt.compare(password, usuario.password);
+        if (!passwordValido) {
+            return res.status(400).json({ success: false, message: 'Correo o contraseña incorrectos' });
+        }
+
+
+        const token = jwt.sign(
+            { id: usuario._id, rol: usuario.rol },
+            process.env.JWT_SECRET,
+            { expiresIn: '15d' }  
+        );
+        
+
+        res.json({ success: true, token, message: 'Inicio de sesión exitoso' });
+    } catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        res.status(500).json({ success: false, message: 'Error interno del servidor' });
+    }
+};
+
+// Editar perfil
+export const editarPerfil = async (req, res) => {
+    try {
+        const { nombre, password, nuevaPassword } = req.body;
+        const usuarioId = req.usuario.id;  
+
+        const usuario = await Usuario.findById(usuarioId);
+        if (!usuario) {
+            return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+        }
+
+        if (nuevaPassword) {
+            const passwordValido = await bcrypt.compare(password, usuario.password);
+            if (!passwordValido) {
+                return res.status(400).json({ success: false, message: 'La contraseña actual es incorrecta' });
+            }
+
+            const salt = await bcrypt.genSalt(10);
+            usuario.password = await bcrypt.hash(nuevaPassword, salt);
+        }
+
+        if (nombre) {
+            usuario.nombre = nombre;
+        }
+
+        await usuario.save();
+
+        res.json({ success: true, message: 'Perfil actualizado exitosamente' });
+    } catch (error) {
+        console.error('Error al actualizar el perfil:', error);
+        res.status(500).json({ success: false, message: 'Error interno del servidor' });
+    }
+};
+
+
+export const eliminarPerfil = async (req, res) => {
+    try {
+        const usuarioId = req.usuario.id;  
+        const usuarioEliminado = await Usuario.findByIdAndDelete(usuarioId);
+
+        if (!usuarioEliminado) {
+            return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+        }
+
+        res.json({ success: true, message: 'Perfil eliminado exitosamente' });
+    } catch (error) {
+        console.error('Error al eliminar el perfil:', error);
+        res.status(500).json({ success: false, message: 'Error interno del servidor' });
+    }
+};
+
+
+export const getUsers = async (req, res) => {
+    try {
+    
+        const usuarios = await Usuario.find({}, { password: 0 }); 
+        res.status(200).json({ success: true, message: 'Lista de usuarios', usuarios });
+    } catch (error) {
+        console.error('Error al obtener los usuarios:', error);
+        res.status(500).json({ success: false, message: 'Error interno del servidor' });
+    }
+};
